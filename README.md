@@ -1,4 +1,4 @@
-# MOVIE RECOMMENDATION SYSTEM
+# MOVIE RECOMMENDER SYSTEM
 
 ## Dataset : https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
