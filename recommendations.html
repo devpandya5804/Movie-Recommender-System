@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Movie Recommender</h1>
+    </header>
+
+    <div class="searched-movie-details">
+        {% for movie_name,movie_overview,movie_poster,movie_rating,movie_date in search_movie_data %}
+        <h2>You searched for:</h2>
+        <div class="movie">
+            <img src="{{ movie_poster }}" alt="{{ movie_name }}" loading="lazy">
+            <h2>{{ movie_name }}</h2>
+            <p>Rating: {{ movie_rating }}</p>
+            <p>Release Date: {{ movie_date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="recommendation-heading">
+        <h2>Must see movies if you liked watching {{ movie_name }}:</h2>
+    </div>
+
+    <div class="movie-list">
+        {% for movie_name,movie_overview,movie_poster,movie_rating,movie_date in recommended_movies %}
+        <div class="movie">
+            <img src="{{ movie_poster }}" alt="{{ movie_name }}" loading="lazy">
+            <div class="movie-info">
+                <h2>{{ movie_name }}</h2>
+                <p>Rating: {{ movie_rating }}</p>
+                <p>Release Date: {{ movie_date }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        <a href="/" class="btn">Explore New Movie</a>
+    </div>
+
+    <footer>
+        &copy; Made By Dev Pandya. <a href="https://github.com/devpandya5804">Github</a> <a href="https://www.linkedin.com/in/dev-pandya-6769a5252/">Linkedin</a>
+    </footer>
+</body>
+</html>
